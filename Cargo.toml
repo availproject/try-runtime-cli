@@ -31,6 +31,10 @@ tempfile = { version = "3.1.0" }
 tokio = { version = "1.27.0" }
 zstd = { version = "0.11.2", default-features = false }
 
+avail-base = { git = "https://github.com/availproject/avail", tag = "v2.2.4.2" }
+avail-core = { git = "https://github.com/availproject/avail-core", tag = "node-v2230-rc2", features = ["runtime", "try-runtime"] }
+avail-system = { package = "frame-system", git = "https://github.com/availproject/avail", tag = "v2.2.4.2" }
+
 # Polkadot SDK
 frame-remote-externalities = { git = "https://github.com/availproject/polkadot-sdk.git", tag = "polkadot-1.7.1-patch-7" }
 frame-try-runtime = { git = "https://github.com/availproject/polkadot-sdk.git", tag = "polkadot-1.7.1-patch-7" }

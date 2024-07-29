@@ -73,6 +73,12 @@ dependencies = [
 
 [[package]]
 name = "ahash"
+version = "0.4.8"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "0453232ace82dee0dd0b4c87a59bd90f7b53b314f3e0f61fe2ee7c8a16482289"
+
+[[package]]
+name = "ahash"
 version = "0.7.8"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "891477e0c6a8957309ee5c45a6368af3ae14bb510732d2684ffa19af310920f9"
@@ -664,6 +670,28 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "0c4b4d0bd25bd0b74681c0ad21497610ce1b7c91b1022cd21c80c6fbdd9476b0"
 
 [[package]]
+name = "avail-base"
+version = "0.1.0"
+source = "git+https://github.com/availproject/avail?tag=v2.2.4.2#2de7256e7fff63ea8f334741174d55ea9ec16df6"
+dependencies = [
+ "avail-core",
+ "binary-merkle-tree",
+ "derive_more",
+ "frame-support",
+ "itertools 0.10.5",
+ "log",
+ "once_cell",
+ "parity-scale-codec",
+ "sp-api",
+ "sp-core",
+ "sp-io",
+ "sp-runtime",
+ "sp-runtime-interface 24.0.0 (git+https://github.com/availproject/polkadot-sdk.git?tag=polkadot-1.7.1-patch-7)",
+ "sp-std 14.0.0 (git+https://github.com/availproject/polkadot-sdk.git?tag=polkadot-1.7.1-patch-7)",
+ "substrate-prometheus-endpoint",
+]
+
+[[package]]
 name = "avail-core"
 version = "0.6.1"
 source = "git+https://github.com/availproject/avail-core?tag=node-v2230-rc2#a1df40acd3dae6d8031f56f011d8adaa43df9d96"
@@ -922,6 +950,17 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "3078c7629b62d3f0439517fa394996acacc5cbc91c5a20d8c658e77abd503a71"
 dependencies = [
  "generic-array 0.14.7",
+]
+
+[[package]]
+name = "blst"
+version = "0.3.10"
+source = "git+https://github.com/availproject/blst?tag=v0.3.10#556e037926d9c526c2eb6cb1522bea39690416ea"
+dependencies = [
+ "cc",
+ "glob",
+ "threadpool",
+ "zeroize",
 ]
 
 [[package]]
@@ -1773,6 +1812,17 @@ dependencies = [
 ]
 
 [[package]]
+name = "derive-hex"
+version = "0.1.2"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "4b6618553c32cd1c1f4fbdb9418cc035f3168422f24406ebb08576f6db5ed6ec"
+dependencies = [
+ "proc-macro2",
+ "quote",
+ "syn 1.0.109",
+]
+
+[[package]]
 name = "derive-syn-parse"
 version = "0.1.5"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1964,6 +2014,56 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "dcbb2bf8e87535c23f7a8a321e364ce21462d0ff10cb6407820e8e96dfff6653"
 
 [[package]]
+name = "dusk-bls12_381"
+version = "0.11.3"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "81cded349291dd4620fd02065cc0fb9a1da7bea8cfe479e0dd067a4cd87225ea"
+dependencies = [
+ "byteorder",
+ "dusk-bytes",
+ "rand_core 0.6.4",
+ "rayon",
+ "subtle 2.4.1",
+]
+
+[[package]]
+name = "dusk-bytes"
+version = "0.1.7"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "d5d209b92f0741edf1d99369bd4c1a1ef2fd0a85e885220f9e3fb0df3c61337f"
+dependencies = [
+ "derive-hex",
+]
+
+[[package]]
+name = "dusk-jubjub"
+version = "0.12.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "c228f2adec5255faf67fe6d106caa093a6c2ef798dca42019b684716528250ff"
+dependencies = [
+ "dusk-bls12_381",
+ "dusk-bytes",
+ "rand_core 0.6.4",
+ "subtle 2.4.1",
+]
+
+[[package]]
+name = "dusk-plonk"
+version = "0.12.0"
+source = "git+https://github.com/availproject/plonk.git?tag=v0.12.0-polygon-2#6ada57a82b6e3a92a677b9f6263f9f3c9b501b23"
+dependencies = [
+ "cfg-if",
+ "dusk-bls12_381",
+ "dusk-bytes",
+ "dusk-jubjub",
+ "hashbrown 0.9.1",
+ "itertools 0.9.0",
+ "merlin",
+ "rand_core 0.6.4",
+ "rayon",
+]
+
+[[package]]
 name = "dyn-clonable"
 version = "0.9.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -2151,11 +2251,23 @@ dependencies = [
 ]
 
 [[package]]
+name = "ethbloom"
+version = "0.13.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "c22d4b5885b6aa2fe5e8b9329fb8d232bf739e434e6b87347c63bdd00c120f60"
+dependencies = [
+ "crunchy",
+ "fixed-hash",
+ "tiny-keccak",
+]
+
+[[package]]
 name = "ethereum-types"
 version = "0.14.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "02d215cbf040552efcbe99a38372fe80ab9d00268e20012b79fcd0f073edd8ee"
 dependencies = [
+ "ethbloom",
  "fixed-hash",
  "primitive-types",
  "uint",
@@ -2385,7 +2497,7 @@ source = "git+https://github.com/availproject/polkadot-sdk.git?tag=polkadot-1.7.
 dependencies = [
  "frame-support",
  "frame-support-procedural",
- "frame-system",
+ "frame-system 28.0.0",
  "linregress",
  "log",
  "parity-scale-codec",
@@ -2415,7 +2527,7 @@ dependencies = [
  "comfy-table",
  "frame-benchmarking",
  "frame-support",
- "frame-system",
+ "frame-system 28.0.0",
  "gethostname",
  "handlebars",
  "itertools 0.10.5",
@@ -2458,7 +2570,7 @@ source = "git+https://github.com/availproject/polkadot-sdk.git?tag=polkadot-1.7.
 dependencies = [
  "frame-benchmarking",
  "frame-support",
- "frame-system",
+ "frame-system 28.0.0",
  "parity-scale-codec",
  "scale-info",
  "sp-io",
@@ -2484,7 +2596,7 @@ source = "git+https://github.com/availproject/polkadot-sdk.git?tag=polkadot-1.7.
 dependencies = [
  "frame-election-provider-solution-type",
  "frame-support",
- "frame-system",
+ "frame-system 28.0.0",
  "parity-scale-codec",
  "scale-info",
  "sp-arithmetic",
@@ -2500,7 +2612,7 @@ version = "28.0.0"
 source = "git+https://github.com/availproject/polkadot-sdk.git?tag=polkadot-1.7.1-patch-7#15e94d468d3878079918b9b2c9024593114623a5"
 dependencies = [
  "frame-support",
- "frame-system",
+ "frame-system 28.0.0",
  "frame-try-runtime",
  "log",
  "parity-scale-codec",
@@ -2630,6 +2742,37 @@ dependencies = [
 
 [[package]]
 name = "frame-system"
+version = "4.0.0-dev"
+source = "git+https://github.com/availproject/avail?tag=v2.2.4.2#2de7256e7fff63ea8f334741174d55ea9ec16df6"
+dependencies = [
+ "avail-base",
+ "avail-core",
+ "binary-merkle-tree",
+ "bounded-collections",
+ "cfg-if",
+ "derive_more",
+ "docify",
+ "frame-support",
+ "hex-literal",
+ "itertools 0.10.5",
+ "kate",
+ "log",
+ "parity-scale-codec",
+ "scale-info",
+ "serde",
+ "sp-core",
+ "sp-io",
+ "sp-runtime",
+ "sp-runtime-interface 24.0.0 (git+https://github.com/availproject/polkadot-sdk.git?tag=polkadot-1.7.1-patch-7)",
+ "sp-std 14.0.0 (git+https://github.com/availproject/polkadot-sdk.git?tag=polkadot-1.7.1-patch-7)",
+ "sp-version",
+ "sp-weights",
+ "static_assertions",
+ "thiserror-no-std",
+]
+
+[[package]]
+name = "frame-system"
 version = "28.0.0"
 source = "git+https://github.com/availproject/polkadot-sdk.git?tag=polkadot-1.7.1-patch-7#15e94d468d3878079918b9b2c9024593114623a5"
 dependencies = [
@@ -2655,7 +2798,7 @@ source = "git+https://github.com/availproject/polkadot-sdk.git?tag=polkadot-1.7.
 dependencies = [
  "frame-benchmarking",
  "frame-support",
- "frame-system",
+ "frame-system 28.0.0",
  "parity-scale-codec",
  "scale-info",
  "sp-core",
@@ -3001,6 +3144,15 @@ dependencies = [
 
 [[package]]
 name = "hashbrown"
+version = "0.9.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "d7afe4a420e3fe79967a00898cc1f4db7c8a49a9333a29f8a4bd76a253d5cd04"
+dependencies = [
+ "ahash 0.4.8",
+]
+
+[[package]]
+name = "hashbrown"
 version = "0.12.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "8a9ee70c43aaf417c914396645a0fa852624801b24ebb7ae78fe8272889ac888"
@@ -3068,6 +3220,12 @@ checksum = "7f24254aa9a54b5c858eaee2f5bccdb46aaf0e486a595ed5fd8f86ba55232a70"
 dependencies = [
  "serde",
 ]
+
+[[package]]
+name = "hex-literal"
+version = "0.3.4"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "7ebdb29d2ea9ed0083cd8cece49bbd968021bd99b0849edb4a9a7ee0fdf6a4e0"
 
 [[package]]
 name = "hkdf"
@@ -3477,6 +3635,15 @@ checksum = "7943c866cc5cd64cbc25b2e01621d07fa8eb2a1a23160ee81ce38704e97b8ecf"
 
 [[package]]
 name = "itertools"
+version = "0.9.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "284f18f85651fe11e8a991b2adb42cb078325c996ed026d994719efcfca1d54b"
+dependencies = [
+ "either",
+]
+
+[[package]]
+name = "itertools"
 version = "0.10.5"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "b0fd2260e829bddf4cb6ea802289de2f86d6a7a690192fbe91b3f46e0f2c8473"
@@ -3684,6 +3851,54 @@ dependencies = [
 ]
 
 [[package]]
+name = "kate"
+version = "0.9.0"
+source = "git+https://github.com/availproject/avail-core?tag=node-v2230-rc2#a1df40acd3dae6d8031f56f011d8adaa43df9d96"
+dependencies = [
+ "avail-core",
+ "derive_more",
+ "dusk-bytes",
+ "dusk-plonk",
+ "hex",
+ "hex-literal",
+ "kate-recovery",
+ "log",
+ "nalgebra",
+ "once_cell",
+ "parity-scale-codec",
+ "poly-multiproof",
+ "rand",
+ "rand_chacha 0.3.1",
+ "rayon",
+ "serde",
+ "serde_json",
+ "sp-arithmetic",
+ "sp-core",
+ "static_assertions",
+ "thiserror-no-std",
+]
+
+[[package]]
+name = "kate-recovery"
+version = "0.9.3"
+source = "git+https://github.com/availproject/avail-core?tag=node-v2230-rc2#a1df40acd3dae6d8031f56f011d8adaa43df9d96"
+dependencies = [
+ "avail-core",
+ "derive_more",
+ "dusk-bytes",
+ "dusk-plonk",
+ "once_cell",
+ "parity-scale-codec",
+ "rand",
+ "rand_chacha 0.3.1",
+ "serde",
+ "sp-arithmetic",
+ "sp-std 14.0.0 (git+https://github.com/availproject/polkadot-sdk.git?tag=polkadot-1.7.1-patch-7)",
+ "static_assertions",
+ "thiserror-no-std",
+]
+
+[[package]]
 name = "keccak"
 version = "0.1.5"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -3708,7 +3923,7 @@ dependencies = [
  "frame-election-provider-support",
  "frame-executive",
  "frame-support",
- "frame-system",
+ "frame-system 28.0.0",
  "frame-system-benchmarking",
  "frame-system-rpc-runtime-api",
  "frame-try-runtime",
@@ -5271,7 +5486,7 @@ source = "git+https://github.com/availproject/polkadot-sdk.git?tag=polkadot-1.7.
 dependencies = [
  "frame-benchmarking",
  "frame-support",
- "frame-system",
+ "frame-system 28.0.0",
  "log",
  "pallet-collective",
  "pallet-identity",
@@ -5291,7 +5506,7 @@ source = "git+https://github.com/availproject/polkadot-sdk.git?tag=polkadot-1.7.
 dependencies = [
  "frame-benchmarking",
  "frame-support",
- "frame-system",
+ "frame-system 28.0.0",
  "parity-scale-codec",
  "scale-info",
  "sp-api",
@@ -5308,7 +5523,7 @@ version = "10.0.0"
 source = "git+https://github.com/availproject/polkadot-sdk.git?tag=polkadot-1.7.1-patch-7#15e94d468d3878079918b9b2c9024593114623a5"
 dependencies = [
  "frame-support",
- "frame-system",
+ "frame-system 28.0.0",
  "pallet-asset-conversion",
  "pallet-transaction-payment",
  "parity-scale-codec",
@@ -5324,7 +5539,7 @@ source = "git+https://github.com/availproject/polkadot-sdk.git?tag=polkadot-1.7.
 dependencies = [
  "frame-benchmarking",
  "frame-support",
- "frame-system",
+ "frame-system 28.0.0",
  "parity-scale-codec",
  "scale-info",
  "sp-core",
@@ -5339,7 +5554,7 @@ source = "git+https://github.com/availproject/polkadot-sdk.git?tag=polkadot-1.7.
 dependencies = [
  "frame-benchmarking",
  "frame-support",
- "frame-system",
+ "frame-system 28.0.0",
  "pallet-transaction-payment",
  "parity-scale-codec",
  "scale-info",
@@ -5357,7 +5572,7 @@ source = "git+https://github.com/availproject/polkadot-sdk.git?tag=polkadot-1.7.
 dependencies = [
  "frame-benchmarking",
  "frame-support",
- "frame-system",
+ "frame-system 28.0.0",
  "log",
  "parity-scale-codec",
  "scale-info",
@@ -5372,7 +5587,7 @@ version = "28.0.0"
 source = "git+https://github.com/availproject/polkadot-sdk.git?tag=polkadot-1.7.1-patch-7#15e94d468d3878079918b9b2c9024593114623a5"
 dependencies = [
  "frame-support",
- "frame-system",
+ "frame-system 28.0.0",
  "pallet-session",
  "parity-scale-codec",
  "scale-info",
@@ -5388,7 +5603,7 @@ version = "28.0.0"
 source = "git+https://github.com/availproject/polkadot-sdk.git?tag=polkadot-1.7.1-patch-7#15e94d468d3878079918b9b2c9024593114623a5"
 dependencies = [
  "frame-support",
- "frame-system",
+ "frame-system 28.0.0",
  "impl-trait-for-tuples",
  "parity-scale-codec",
  "scale-info",
@@ -5403,7 +5618,7 @@ source = "git+https://github.com/availproject/polkadot-sdk.git?tag=polkadot-1.7.
 dependencies = [
  "frame-benchmarking",
  "frame-support",
- "frame-system",
+ "frame-system 28.0.0",
  "log",
  "pallet-authorship",
  "pallet-session",
@@ -5430,7 +5645,7 @@ dependencies = [
  "frame-benchmarking",
  "frame-election-provider-support",
  "frame-support",
- "frame-system",
+ "frame-system 28.0.0",
  "log",
  "pallet-balances",
  "parity-scale-codec",
@@ -5450,7 +5665,7 @@ dependencies = [
  "docify",
  "frame-benchmarking",
  "frame-support",
- "frame-system",
+ "frame-system 28.0.0",
  "log",
  "parity-scale-codec",
  "scale-info",
@@ -5464,7 +5679,7 @@ version = "28.0.0"
 source = "git+https://github.com/availproject/polkadot-sdk.git?tag=polkadot-1.7.1-patch-7#15e94d468d3878079918b9b2c9024593114623a5"
 dependencies = [
  "frame-support",
- "frame-system",
+ "frame-system 28.0.0",
  "log",
  "pallet-authorship",
  "pallet-session",
@@ -5486,7 +5701,7 @@ dependencies = [
  "array-bytes 6.2.3",
  "binary-merkle-tree",
  "frame-support",
- "frame-system",
+ "frame-system 28.0.0",
  "log",
  "pallet-beefy",
  "pallet-mmr",
@@ -5510,7 +5725,7 @@ source = "git+https://github.com/availproject/polkadot-sdk.git?tag=polkadot-1.7.
 dependencies = [
  "frame-benchmarking",
  "frame-support",
- "frame-system",
+ "frame-system 28.0.0",
  "log",
  "pallet-treasury",
  "parity-scale-codec",
@@ -5529,7 +5744,7 @@ dependencies = [
  "bitvec",
  "frame-benchmarking",
  "frame-support",
- "frame-system",
+ "frame-system 28.0.0",
  "parity-scale-codec",
  "scale-info",
  "sp-arithmetic",
@@ -5545,7 +5760,7 @@ source = "git+https://github.com/availproject/polkadot-sdk.git?tag=polkadot-1.7.
 dependencies = [
  "frame-benchmarking",
  "frame-support",
- "frame-system",
+ "frame-system 28.0.0",
  "log",
  "pallet-bounties",
  "pallet-treasury",
@@ -5564,7 +5779,7 @@ source = "git+https://github.com/availproject/polkadot-sdk.git?tag=polkadot-1.7.
 dependencies = [
  "frame-benchmarking",
  "frame-support",
- "frame-system",
+ "frame-system 28.0.0",
  "log",
  "parity-scale-codec",
  "scale-info",
@@ -5583,7 +5798,7 @@ dependencies = [
  "environmental",
  "frame-benchmarking",
  "frame-support",
- "frame-system",
+ "frame-system 28.0.0",
  "impl-trait-for-tuples",
  "log",
  "pallet-balances",
@@ -5635,7 +5850,7 @@ dependencies = [
  "assert_matches",
  "frame-benchmarking",
  "frame-support",
- "frame-system",
+ "frame-system 28.0.0",
  "parity-scale-codec",
  "scale-info",
  "serde",
@@ -5651,7 +5866,7 @@ source = "git+https://github.com/availproject/polkadot-sdk.git?tag=polkadot-1.7.
 dependencies = [
  "frame-benchmarking",
  "frame-support",
- "frame-system",
+ "frame-system 28.0.0",
  "log",
  "pallet-ranked-collective",
  "parity-scale-codec",
@@ -5670,7 +5885,7 @@ source = "git+https://github.com/availproject/polkadot-sdk.git?tag=polkadot-1.7.
 dependencies = [
  "frame-benchmarking",
  "frame-support",
- "frame-system",
+ "frame-system 28.0.0",
  "log",
  "parity-scale-codec",
  "scale-info",
@@ -5689,7 +5904,7 @@ dependencies = [
  "frame-benchmarking",
  "frame-election-provider-support",
  "frame-support",
- "frame-system",
+ "frame-system 28.0.0",
  "log",
  "pallet-election-provider-support-benchmarking",
  "parity-scale-codec",
@@ -5711,7 +5926,7 @@ source = "git+https://github.com/availproject/polkadot-sdk.git?tag=polkadot-1.7.
 dependencies = [
  "frame-benchmarking",
  "frame-election-provider-support",
- "frame-system",
+ "frame-system 28.0.0",
  "parity-scale-codec",
  "sp-npos-elections",
  "sp-runtime",
@@ -5725,7 +5940,7 @@ source = "git+https://github.com/availproject/polkadot-sdk.git?tag=polkadot-1.7.
 dependencies = [
  "frame-benchmarking",
  "frame-support",
- "frame-system",
+ "frame-system 28.0.0",
  "log",
  "parity-scale-codec",
  "scale-info",
@@ -5744,7 +5959,7 @@ source = "git+https://github.com/availproject/polkadot-sdk.git?tag=polkadot-1.7.
 dependencies = [
  "frame-benchmarking",
  "frame-support",
- "frame-system",
+ "frame-system 28.0.0",
  "log",
  "parity-scale-codec",
  "scale-info",
@@ -5763,7 +5978,7 @@ dependencies = [
  "frame-benchmarking",
  "frame-election-provider-support",
  "frame-support",
- "frame-system",
+ "frame-system 28.0.0",
  "log",
  "parity-scale-codec",
  "scale-info",
@@ -5781,7 +5996,7 @@ dependencies = [
  "blake2 0.10.6",
  "frame-benchmarking",
  "frame-support",
- "frame-system",
+ "frame-system 28.0.0",
  "log",
  "parity-scale-codec",
  "scale-info",
@@ -5798,7 +6013,7 @@ source = "git+https://github.com/availproject/polkadot-sdk.git?tag=polkadot-1.7.
 dependencies = [
  "frame-benchmarking",
  "frame-support",
- "frame-system",
+ "frame-system 28.0.0",
  "log",
  "pallet-authorship",
  "pallet-session",
@@ -5822,7 +6037,7 @@ dependencies = [
  "enumflags2",
  "frame-benchmarking",
  "frame-support",
- "frame-system",
+ "frame-system 28.0.0",
  "log",
  "parity-scale-codec",
  "scale-info",
@@ -5838,7 +6053,7 @@ source = "git+https://github.com/availproject/polkadot-sdk.git?tag=polkadot-1.7.
 dependencies = [
  "frame-benchmarking",
  "frame-support",
- "frame-system",
+ "frame-system 28.0.0",
  "log",
  "pallet-authorship",
  "parity-scale-codec",
@@ -5858,7 +6073,7 @@ source = "git+https://github.com/availproject/polkadot-sdk.git?tag=polkadot-1.7.
 dependencies = [
  "frame-benchmarking",
  "frame-support",
- "frame-system",
+ "frame-system 28.0.0",
  "parity-scale-codec",
  "scale-info",
  "sp-core",
@@ -5874,7 +6089,7 @@ version = "16.0.0"
 source = "git+https://github.com/availproject/polkadot-sdk.git?tag=polkadot-1.7.1-patch-7#15e94d468d3878079918b9b2c9024593114623a5"
 dependencies = [
  "frame-support",
- "frame-system",
+ "frame-system 28.0.0",
  "parity-scale-codec",
  "safe-mix",
  "scale-info",
@@ -5889,7 +6104,7 @@ source = "git+https://github.com/availproject/polkadot-sdk.git?tag=polkadot-1.7.
 dependencies = [
  "frame-benchmarking",
  "frame-support",
- "frame-system",
+ "frame-system 28.0.0",
  "parity-scale-codec",
  "scale-info",
  "sp-runtime",
@@ -5903,7 +6118,7 @@ source = "git+https://github.com/availproject/polkadot-sdk.git?tag=polkadot-1.7.
 dependencies = [
  "frame-benchmarking",
  "frame-support",
- "frame-system",
+ "frame-system 28.0.0",
  "log",
  "parity-scale-codec",
  "scale-info",
@@ -5921,7 +6136,7 @@ dependencies = [
  "environmental",
  "frame-benchmarking",
  "frame-support",
- "frame-system",
+ "frame-system 28.0.0",
  "log",
  "parity-scale-codec",
  "scale-info",
@@ -5940,7 +6155,7 @@ source = "git+https://github.com/availproject/polkadot-sdk.git?tag=polkadot-1.7.
 dependencies = [
  "frame-benchmarking",
  "frame-support",
- "frame-system",
+ "frame-system 28.0.0",
  "log",
  "parity-scale-codec",
  "scale-info",
@@ -5960,7 +6175,7 @@ source = "git+https://github.com/availproject/polkadot-sdk.git?tag=polkadot-1.7.
 dependencies = [
  "frame-benchmarking",
  "frame-support",
- "frame-system",
+ "frame-system 28.0.0",
  "log",
  "parity-scale-codec",
  "scale-info",
@@ -5978,7 +6193,7 @@ source = "git+https://github.com/availproject/polkadot-sdk.git?tag=polkadot-1.7.
 dependencies = [
  "frame-benchmarking",
  "frame-support",
- "frame-system",
+ "frame-system 28.0.0",
  "log",
  "parity-scale-codec",
  "scale-info",
@@ -5994,7 +6209,7 @@ source = "git+https://github.com/availproject/polkadot-sdk.git?tag=polkadot-1.7.
 dependencies = [
  "frame-benchmarking",
  "frame-support",
- "frame-system",
+ "frame-system 28.0.0",
  "log",
  "pallet-assets",
  "pallet-nfts",
@@ -6012,7 +6227,7 @@ dependencies = [
  "enumflags2",
  "frame-benchmarking",
  "frame-support",
- "frame-system",
+ "frame-system 28.0.0",
  "log",
  "parity-scale-codec",
  "scale-info",
@@ -6040,7 +6255,7 @@ source = "git+https://github.com/availproject/polkadot-sdk.git?tag=polkadot-1.7.
 dependencies = [
  "frame-benchmarking",
  "frame-support",
- "frame-system",
+ "frame-system 28.0.0",
  "parity-scale-codec",
  "scale-info",
  "sp-arithmetic",
@@ -6055,7 +6270,7 @@ version = "25.0.0"
 source = "git+https://github.com/availproject/polkadot-sdk.git?tag=polkadot-1.7.1-patch-7#15e94d468d3878079918b9b2c9024593114623a5"
 dependencies = [
  "frame-support",
- "frame-system",
+ "frame-system 28.0.0",
  "log",
  "pallet-balances",
  "parity-scale-codec",
@@ -6076,7 +6291,7 @@ dependencies = [
  "frame-benchmarking",
  "frame-election-provider-support",
  "frame-support",
- "frame-system",
+ "frame-system 28.0.0",
  "pallet-bags-list",
  "pallet-nomination-pools",
  "pallet-staking",
@@ -6105,7 +6320,7 @@ version = "27.0.0"
 source = "git+https://github.com/availproject/polkadot-sdk.git?tag=polkadot-1.7.1-patch-7#15e94d468d3878079918b9b2c9024593114623a5"
 dependencies = [
  "frame-support",
- "frame-system",
+ "frame-system 28.0.0",
  "log",
  "pallet-balances",
  "parity-scale-codec",
@@ -6124,7 +6339,7 @@ dependencies = [
  "frame-benchmarking",
  "frame-election-provider-support",
  "frame-support",
- "frame-system",
+ "frame-system 28.0.0",
  "log",
  "pallet-babe",
  "pallet-balances",
@@ -6147,7 +6362,7 @@ source = "git+https://github.com/availproject/polkadot-sdk.git?tag=polkadot-1.7.
 dependencies = [
  "frame-benchmarking",
  "frame-support",
- "frame-system",
+ "frame-system 28.0.0",
  "log",
  "parity-scale-codec",
  "scale-info",
@@ -6164,7 +6379,7 @@ source = "git+https://github.com/availproject/polkadot-sdk.git?tag=polkadot-1.7.
 dependencies = [
  "frame-benchmarking",
  "frame-support",
- "frame-system",
+ "frame-system 28.0.0",
  "parity-scale-codec",
  "scale-info",
  "sp-io",
@@ -6179,7 +6394,7 @@ source = "git+https://github.com/availproject/polkadot-sdk.git?tag=polkadot-1.7.
 dependencies = [
  "frame-benchmarking",
  "frame-support",
- "frame-system",
+ "frame-system 28.0.0",
  "impl-trait-for-tuples",
  "log",
  "parity-scale-codec",
@@ -6198,7 +6413,7 @@ source = "git+https://github.com/availproject/polkadot-sdk.git?tag=polkadot-1.7.
 dependencies = [
  "frame-benchmarking",
  "frame-support",
- "frame-system",
+ "frame-system 28.0.0",
  "parity-scale-codec",
  "scale-info",
  "sp-io",
@@ -6213,7 +6428,7 @@ source = "git+https://github.com/availproject/polkadot-sdk.git?tag=polkadot-1.7.
 dependencies = [
  "frame-benchmarking",
  "frame-support",
- "frame-system",
+ "frame-system 28.0.0",
  "log",
  "parity-scale-codec",
  "scale-info",
@@ -6231,7 +6446,7 @@ source = "git+https://github.com/availproject/polkadot-sdk.git?tag=polkadot-1.7.
 dependencies = [
  "frame-benchmarking",
  "frame-support",
- "frame-system",
+ "frame-system 28.0.0",
  "parity-scale-codec",
  "scale-info",
  "serde",
@@ -6247,7 +6462,7 @@ version = "4.0.0"
 source = "git+https://github.com/availproject/polkadot-sdk.git?tag=polkadot-1.7.1-patch-7#15e94d468d3878079918b9b2c9024593114623a5"
 dependencies = [
  "frame-support",
- "frame-system",
+ "frame-system 28.0.0",
  "parity-scale-codec",
  "scale-info",
  "sp-core",
@@ -6264,7 +6479,7 @@ dependencies = [
  "docify",
  "frame-benchmarking",
  "frame-support",
- "frame-system",
+ "frame-system 28.0.0",
  "pallet-balances",
  "pallet-proxy",
  "pallet-utility",
@@ -6282,7 +6497,7 @@ source = "git+https://github.com/availproject/polkadot-sdk.git?tag=polkadot-1.7.
 dependencies = [
  "frame-benchmarking",
  "frame-support",
- "frame-system",
+ "frame-system 28.0.0",
  "log",
  "pallet-ranked-collective",
  "parity-scale-codec",
@@ -6302,7 +6517,7 @@ dependencies = [
  "docify",
  "frame-benchmarking",
  "frame-support",
- "frame-system",
+ "frame-system 28.0.0",
  "log",
  "parity-scale-codec",
  "scale-info",
@@ -6318,7 +6533,7 @@ version = "28.0.0"
 source = "git+https://github.com/availproject/polkadot-sdk.git?tag=polkadot-1.7.1-patch-7#15e94d468d3878079918b9b2c9024593114623a5"
 dependencies = [
  "frame-support",
- "frame-system",
+ "frame-system 28.0.0",
  "impl-trait-for-tuples",
  "log",
  "pallet-timestamp",
@@ -6341,7 +6556,7 @@ source = "git+https://github.com/availproject/polkadot-sdk.git?tag=polkadot-1.7.
 dependencies = [
  "frame-benchmarking",
  "frame-support",
- "frame-system",
+ "frame-system 28.0.0",
  "pallet-session",
  "pallet-staking",
  "parity-scale-codec",
@@ -6357,7 +6572,7 @@ version = "3.0.0"
 source = "git+https://github.com/availproject/polkadot-sdk.git?tag=polkadot-1.7.1-patch-7#15e94d468d3878079918b9b2c9024593114623a5"
 dependencies = [
  "frame-support",
- "frame-system",
+ "frame-system 28.0.0",
  "parity-scale-codec",
  "scale-info",
  "sp-runtime",
@@ -6371,7 +6586,7 @@ source = "git+https://github.com/availproject/polkadot-sdk.git?tag=polkadot-1.7.
 dependencies = [
  "frame-benchmarking",
  "frame-support",
- "frame-system",
+ "frame-system 28.0.0",
  "log",
  "parity-scale-codec",
  "rand_chacha 0.2.2",
@@ -6390,7 +6605,7 @@ dependencies = [
  "frame-benchmarking",
  "frame-election-provider-support",
  "frame-support",
- "frame-system",
+ "frame-system 28.0.0",
  "log",
  "pallet-authorship",
  "pallet-session",
@@ -6432,7 +6647,7 @@ source = "git+https://github.com/availproject/polkadot-sdk.git?tag=polkadot-1.7.
 dependencies = [
  "frame-benchmarking",
  "frame-support",
- "frame-system",
+ "frame-system 28.0.0",
  "log",
  "parity-scale-codec",
  "scale-info",
@@ -6448,7 +6663,7 @@ version = "10.0.0"
 source = "git+https://github.com/availproject/polkadot-sdk.git?tag=polkadot-1.7.1-patch-7#15e94d468d3878079918b9b2c9024593114623a5"
 dependencies = [
  "frame-support",
- "frame-system",
+ "frame-system 28.0.0",
  "log",
  "parity-scale-codec",
  "scale-info",
@@ -6468,7 +6683,7 @@ dependencies = [
  "docify",
  "frame-benchmarking",
  "frame-support",
- "frame-system",
+ "frame-system 28.0.0",
  "parity-scale-codec",
  "scale-info",
  "sp-io",
@@ -6484,7 +6699,7 @@ dependencies = [
  "docify",
  "frame-benchmarking",
  "frame-support",
- "frame-system",
+ "frame-system 28.0.0",
  "log",
  "parity-scale-codec",
  "scale-info",
@@ -6503,7 +6718,7 @@ source = "git+https://github.com/availproject/polkadot-sdk.git?tag=polkadot-1.7.
 dependencies = [
  "frame-benchmarking",
  "frame-support",
- "frame-system",
+ "frame-system 28.0.0",
  "log",
  "pallet-treasury",
  "parity-scale-codec",
@@ -6521,7 +6736,7 @@ version = "28.0.0"
 source = "git+https://github.com/availproject/polkadot-sdk.git?tag=polkadot-1.7.1-patch-7#15e94d468d3878079918b9b2c9024593114623a5"
 dependencies = [
  "frame-support",
- "frame-system",
+ "frame-system 28.0.0",
  "parity-scale-codec",
  "scale-info",
  "serde",
@@ -6566,7 +6781,7 @@ source = "git+https://github.com/availproject/polkadot-sdk.git?tag=polkadot-1.7.
 dependencies = [
  "frame-benchmarking",
  "frame-support",
- "frame-system",
+ "frame-system 28.0.0",
  "log",
  "pallet-balances",
  "parity-scale-codec",
@@ -6587,7 +6802,7 @@ dependencies = [
  "docify",
  "frame-benchmarking",
  "frame-support",
- "frame-system",
+ "frame-system 28.0.0",
  "impl-trait-for-tuples",
  "pallet-balances",
  "parity-scale-codec",
@@ -6606,7 +6821,7 @@ dependencies = [
  "docify",
  "frame-benchmarking",
  "frame-support",
- "frame-system",
+ "frame-system 28.0.0",
  "pallet-balances",
  "pallet-proxy",
  "pallet-utility",
@@ -6623,7 +6838,7 @@ source = "git+https://github.com/availproject/polkadot-sdk.git?tag=polkadot-1.7.
 dependencies = [
  "frame-benchmarking",
  "frame-support",
- "frame-system",
+ "frame-system 28.0.0",
  "log",
  "parity-scale-codec",
  "scale-info",
@@ -6638,7 +6853,7 @@ source = "git+https://github.com/availproject/polkadot-sdk.git?tag=polkadot-1.7.
 dependencies = [
  "frame-benchmarking",
  "frame-support",
- "frame-system",
+ "frame-system 28.0.0",
  "parity-scale-codec",
  "scale-info",
  "sp-core",
@@ -6654,7 +6869,7 @@ source = "git+https://github.com/availproject/polkadot-sdk.git?tag=polkadot-1.7.
 dependencies = [
  "frame-benchmarking",
  "frame-support",
- "frame-system",
+ "frame-system 28.0.0",
  "log",
  "parity-scale-codec",
  "scale-info",
@@ -6669,7 +6884,7 @@ source = "git+https://github.com/availproject/polkadot-sdk.git?tag=polkadot-1.7.
 dependencies = [
  "frame-benchmarking",
  "frame-support",
- "frame-system",
+ "frame-system 28.0.0",
  "parity-scale-codec",
  "scale-info",
  "sp-api",
@@ -7055,6 +7270,21 @@ dependencies = [
  "rustix 0.38.34",
  "tracing",
  "windows-sys 0.52.0",
+]
+
+[[package]]
+name = "poly-multiproof"
+version = "0.0.1"
+source = "git+https://github.com/availproject/poly-multiproof?tag=v0.0.1#cd8d31b7eb568dea2fddfc9237e2e31ea7ae7ed3"
+dependencies = [
+ "ark-bls12-381",
+ "ark-ec",
+ "ark-ff",
+ "ark-poly",
+ "ark-serialize",
+ "ark-std",
+ "blst",
+ "merlin",
 ]
 
 [[package]]
@@ -10512,7 +10742,7 @@ dependencies = [
  "clap_complete",
  "frame-benchmarking",
  "frame-benchmarking-cli",
- "frame-system",
+ "frame-system 28.0.0",
  "frame-system-rpc-runtime-api",
  "futures",
  "jsonrpsee",
@@ -10622,7 +10852,7 @@ version = "7.0.0"
 source = "git+https://github.com/availproject/polkadot-sdk.git?tag=polkadot-1.7.1-patch-7#15e94d468d3878079918b9b2c9024593114623a5"
 dependencies = [
  "frame-support",
- "frame-system",
+ "frame-system 28.0.0",
  "impl-trait-for-tuples",
  "log",
  "pallet-transaction-payment",
@@ -10815,7 +11045,7 @@ source = "git+https://github.com/availproject/polkadot-sdk.git?tag=polkadot-1.7.
 dependencies = [
  "clap",
  "frame-support",
- "frame-system",
+ "frame-system 28.0.0",
  "sc-cli",
  "sp-core",
  "sp-runtime",
@@ -11537,9 +11767,12 @@ checksum = "e421abadd41a4225275504ea4d6566923418b7f05506fbc9c0fe86ba7396114b"
 name = "try-runtime-cli"
 version = "0.6.2"
 dependencies = [
+ "avail-base",
+ "avail-core",
  "clap",
  "env_logger",
  "frame-support",
+ "frame-system 4.0.0-dev",
  "node-primitives",
  "parity-scale-codec",
  "sp-io",

@@ -298,10 +298,26 @@
 //! [`SharedParams::overwrite_state_version`]: try_runtime_core::shared_parameters::SharedParams::overwrite_state_version
 
 use std::env;
-
+use avail_core::{header::Header as DaHeader, OpaqueExtrinsic};
 use clap::Parser;
-use node_primitives::Block;
+// use node_primitives::Block;
 use try_runtime_core::commands::TryRuntime;
+use sp_io::SubstrateHostFunctions;
+use sp_runtime::traits::BlakeTwo256;
+
+/// An index to a block.
+pub type BlockNumber = u32;
+/// Block header type as expected by this runtime.
+pub type Header = DaHeader<BlockNumber, BlakeTwo256>;
+/// Block type for the node
+pub type Block = sp_runtime::generic::Block<Header, OpaqueExtrinsic>;
+
+pub type AvailHostFunctions = (
+    SubstrateHostFunctions,
+    avail_system::native::hosted_header_builder::hosted_header_builder::HostFunctions,
+    avail_base::mem_tmp_storage::hosted_mem_tmp_storage::HostFunctions,
+    // da_runtime::kate::native::hosted_kate::HostFunctions,
+);
 
 fn init_env() {
     if env::var(env_logger::DEFAULT_FILTER_ENV).is_err() {
@@ -315,7 +331,7 @@ async fn main() {
     init_env();
 
     let cmd = TryRuntime::parse();
-    cmd.run::<Block, sp_io::SubstrateHostFunctions>()
+    cmd.run::<Block, AvailHostFunctions>()
         .await
         .unwrap();
 }
