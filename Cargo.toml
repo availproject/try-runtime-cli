@@ -32,37 +32,37 @@ tokio = { version = "1.27.0" }
 zstd = { version = "0.11.2", default-features = false }
 
 # Polkadot SDK
-frame-remote-externalities = { git = "https://github.com/paritytech/polkadot-sdk", rev = "1d5d4a484021ede73152bf71af37718fa38bb72b" }
-frame-try-runtime = { git = "https://github.com/paritytech/polkadot-sdk", rev = "1d5d4a484021ede73152bf71af37718fa38bb72b" }
-frame-support = { git = "https://github.com/paritytech/polkadot-sdk", rev = "1d5d4a484021ede73152bf71af37718fa38bb72b" }
+frame-remote-externalities = { git = "https://github.com/availproject/polkadot-sdk.git", tag = "polkadot-1.7.1-patch-7" }
+frame-try-runtime = { git = "https://github.com/availproject/polkadot-sdk.git", tag = "polkadot-1.7.1-patch-7" }
+frame-support = { git = "https://github.com/availproject/polkadot-sdk.git", tag = "polkadot-1.7.1-patch-7" }
 
-sc-cli = { git = "https://github.com/paritytech/polkadot-sdk", rev = "1d5d4a484021ede73152bf71af37718fa38bb72b" }
-sc-executor = { git = "https://github.com/paritytech/polkadot-sdk", rev = "1d5d4a484021ede73152bf71af37718fa38bb72b" }
-sc-service = { git = "https://github.com/paritytech/polkadot-sdk", rev = "1d5d4a484021ede73152bf71af37718fa38bb72b" }
+sc-cli = { git = "https://github.com/availproject/polkadot-sdk.git", tag = "polkadot-1.7.1-patch-7" }
+sc-executor = { git = "https://github.com/availproject/polkadot-sdk.git", tag = "polkadot-1.7.1-patch-7" }
+sc-service = { git = "https://github.com/availproject/polkadot-sdk.git", tag = "polkadot-1.7.1-patch-7" }
 
-sp-api = { git = "https://github.com/paritytech/polkadot-sdk", rev = "1d5d4a484021ede73152bf71af37718fa38bb72b" }
-sp-consensus-aura = { git = "https://github.com/paritytech/polkadot-sdk", rev = "1d5d4a484021ede73152bf71af37718fa38bb72b" }
-sp-consensus-babe = { git = "https://github.com/paritytech/polkadot-sdk", rev = "1d5d4a484021ede73152bf71af37718fa38bb72b" }
-sp-core = { git = "https://github.com/paritytech/polkadot-sdk", rev = "1d5d4a484021ede73152bf71af37718fa38bb72b" }
-sp-externalities = { git = "https://github.com/paritytech/polkadot-sdk", rev = "1d5d4a484021ede73152bf71af37718fa38bb72b" }
-sp-inherents = { git = "https://github.com/paritytech/polkadot-sdk", rev = "1d5d4a484021ede73152bf71af37718fa38bb72b" }
-sp-io = { git = "https://github.com/paritytech/polkadot-sdk", rev = "1d5d4a484021ede73152bf71af37718fa38bb72b" }
-sp-keystore = { git = "https://github.com/paritytech/polkadot-sdk", rev = "1d5d4a484021ede73152bf71af37718fa38bb72b" }
-sp-rpc = { git = "https://github.com/paritytech/polkadot-sdk", rev = "1d5d4a484021ede73152bf71af37718fa38bb72b" }
-sp-runtime = { git = "https://github.com/paritytech/polkadot-sdk", rev = "1d5d4a484021ede73152bf71af37718fa38bb72b" }
-sp-state-machine = { git = "https://github.com/paritytech/polkadot-sdk", rev = "1d5d4a484021ede73152bf71af37718fa38bb72b" }
-sp-storage = { git = "https://github.com/paritytech/polkadot-sdk", rev = "1d5d4a484021ede73152bf71af37718fa38bb72b" }
-sp-std = { git = "https://github.com/paritytech/polkadot-sdk", rev = "1d5d4a484021ede73152bf71af37718fa38bb72b" }
-sp-timestamp = { git = "https://github.com/paritytech/polkadot-sdk", rev = "1d5d4a484021ede73152bf71af37718fa38bb72b" }
-sp-transaction-storage-proof = { git = "https://github.com/paritytech/polkadot-sdk", rev = "1d5d4a484021ede73152bf71af37718fa38bb72b" }
-sp-version = { git = "https://github.com/paritytech/polkadot-sdk", rev = "1d5d4a484021ede73152bf71af37718fa38bb72b" }
-sp-weights = { git = "https://github.com/paritytech/polkadot-sdk", rev = "1d5d4a484021ede73152bf71af37718fa38bb72b" }
+sp-api = { git = "https://github.com/availproject/polkadot-sdk.git", tag = "polkadot-1.7.1-patch-7" }
+sp-consensus-aura = { git = "https://github.com/availproject/polkadot-sdk.git", tag = "polkadot-1.7.1-patch-7" }
+sp-consensus-babe = { git = "https://github.com/availproject/polkadot-sdk.git", tag = "polkadot-1.7.1-patch-7" }
+sp-core = { git = "https://github.com/availproject/polkadot-sdk.git", tag = "polkadot-1.7.1-patch-7" }
+sp-externalities = { git = "https://github.com/availproject/polkadot-sdk.git", tag = "polkadot-1.7.1-patch-7" }
+sp-inherents = { git = "https://github.com/availproject/polkadot-sdk.git", tag = "polkadot-1.7.1-patch-7" }
+sp-io = { git = "https://github.com/availproject/polkadot-sdk.git", tag = "polkadot-1.7.1-patch-7" }
+sp-keystore = { git = "https://github.com/availproject/polkadot-sdk.git", tag = "polkadot-1.7.1-patch-7" }
+sp-rpc = { git = "https://github.com/availproject/polkadot-sdk.git", tag = "polkadot-1.7.1-patch-7" }
+sp-runtime = { git = "https://github.com/availproject/polkadot-sdk.git", tag = "polkadot-1.7.1-patch-7" }
+sp-state-machine = { git = "https://github.com/availproject/polkadot-sdk.git", tag = "polkadot-1.7.1-patch-7" }
+sp-storage = { git = "https://github.com/availproject/polkadot-sdk.git", tag = "polkadot-1.7.1-patch-7" }
+sp-std = { git = "https://github.com/availproject/polkadot-sdk.git", tag = "polkadot-1.7.1-patch-7" }
+sp-timestamp = { git = "https://github.com/availproject/polkadot-sdk.git", tag = "polkadot-1.7.1-patch-7" }
+sp-transaction-storage-proof = { git = "https://github.com/availproject/polkadot-sdk.git", tag = "polkadot-1.7.1-patch-7" }
+sp-version = { git = "https://github.com/availproject/polkadot-sdk.git", tag = "polkadot-1.7.1-patch-7" }
+sp-weights = { git = "https://github.com/availproject/polkadot-sdk.git", tag = "polkadot-1.7.1-patch-7" }
 
-substrate-cli-test-utils = { git = "https://github.com/paritytech/polkadot-sdk", rev = "1d5d4a484021ede73152bf71af37718fa38bb72b" }
-substrate-rpc-client = { git = "https://github.com/paritytech/polkadot-sdk", rev = "1d5d4a484021ede73152bf71af37718fa38bb72b" }
+substrate-cli-test-utils = { git = "https://github.com/availproject/polkadot-sdk.git", tag = "polkadot-1.7.1-patch-7" }
+substrate-rpc-client = { git = "https://github.com/availproject/polkadot-sdk.git", tag = "polkadot-1.7.1-patch-7" }
 
-node-executor = { package = "staging-node-executor", git = "https://github.com/paritytech/polkadot-sdk", rev = "1d5d4a484021ede73152bf71af37718fa38bb72b" }
-node-primitives = { git = "https://github.com/paritytech/polkadot-sdk", rev = "1d5d4a484021ede73152bf71af37718fa38bb72b" }
+# node-executor = { package = "staging-node-executor", git = "https://github.com/availproject/polkadot-sdk.git", tag = "polkadot-1.7.1-patch-7" }
+node-primitives = { git = "https://github.com/availproject/polkadot-sdk.git", tag = "polkadot-1.7.1-patch-7" }
 
 # Local
 try-runtime-core = { path = "core" }
