@@ -30,3 +30,6 @@ sp-storage = { workspace = true }
 try-runtime-core = { workspace = true }
 
 frame-support = { workspace = true }
+avail-base = { workspace = true }
+avail-core = { workspace = true }
+frame-system = { workspace = true }
