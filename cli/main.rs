@@ -302,13 +302,22 @@
 use std::env;
 
 use clap::Parser;
-use sp_runtime::{
-    generic::{Block, Header},
-    traits::BlakeTwo256,
-    OpaqueExtrinsic,
-};
+use sp_runtime::traits::BlakeTwo256;
 use try_runtime_core::commands::TryRuntime;
+use avail_core::{header::Header as DaHeader, OpaqueExtrinsic};
 
+/// An index to a block.
+pub type BlockNumber = u32;
+/// Block header type as expected by this runtime.
+pub type Header = DaHeader<BlockNumber, BlakeTwo256>;
+/// Block type for the node
+pub type Block = sp_runtime::generic::Block<Header, OpaqueExtrinsic>;
+
+pub type AvailHostFunctions = (
+    sp_io::SubstrateHostFunctions,
+    frame_system::native::hosted_header_builder::hosted_header_builder::HostFunctions,
+    avail_base::mem_tmp_storage::hosted_mem_tmp_storage::HostFunctions,
+);
 fn init_env() {
     if env::var(env_logger::DEFAULT_FILTER_ENV).is_err() {
         env::set_var(env_logger::DEFAULT_FILTER_ENV, "info");
@@ -321,7 +330,7 @@ async fn main() {
     init_env();
 
     let cmd = TryRuntime::parse();
-    cmd.run::<Block<Header<u32, BlakeTwo256>, OpaqueExtrinsic>, sp_io::SubstrateHostFunctions>()
+    cmd.run::<Block, AvailHostFunctions>()
         .await
         .unwrap();
 }
